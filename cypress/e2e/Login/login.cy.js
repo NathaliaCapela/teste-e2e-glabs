@@ -19,14 +19,12 @@ describe('Testes Funcional de Login', () => {
        
 });
     
-
-});
-
 it('Validando Senha incorreta  ', () => {
     cy.visit("https://www.saucedemo.com/")
     cy.get('[data-test="username"]').type("standard_user")
     cy.get('[data-test="password"]').type("incorreta")
     cy.get('[data-test="login-button"]').click()
 
+});
 });
 
