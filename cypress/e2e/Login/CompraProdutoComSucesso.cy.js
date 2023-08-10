@@ -58,4 +58,10 @@ cy.get('.cart_list > :nth-child(5)').should('contain','Sauce Labs Bolt T-Shirt')
 //Checagem do valor total:
 cy.get('.summary_total_label').should('have.text','Total: $36.69')
 
+//Finalizando compra:
+cy.get('[data-test="finish"]').click()
+
+//Mensagem de compra confirmada:
+cy.get('.complete-header').should('have.text','Thank you for your order!')
+
 });
