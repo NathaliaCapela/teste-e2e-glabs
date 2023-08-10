@@ -50,3 +50,12 @@ cy.get('[data-test="lastName"]').type('Teste Ultimo Nome')
 cy.get('[data-test="postalCode"]').type('11035-260')
 cy.get('[data-test="continue"]').click()
 
+//Verificando Produtos no Checkout:
+cy.get('.cart_list > :nth-child(3)').should('contain','Sauce Labs Onesie')
+cy.get('.cart_list > :nth-child(4)').should('contain','Sauce Labs Bike Light')
+cy.get('.cart_list > :nth-child(5)').should('contain','Sauce Labs Bolt T-Shirt')
+
+//Checagem do valor total:
+cy.get('.summary_total_label').should('have.text','Total: $36.69')
+
+});
