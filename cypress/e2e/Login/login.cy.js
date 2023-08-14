@@ -2,27 +2,20 @@
 
 
 describe('Testes Funcional de Login', () => {
-    it('Deve realizar o login com sucesso ', () => {
-        cy.visit("https://www.saucedemo.com/")
-        cy.get('[data-test="username"]').type("standard_user")
-        cy.get('[data-test="password"]').type("secret_sauce")
-        cy.get('[data-test="login-button"]').click()
+    it.only('Deve realizar o login com sucesso ', () => {
+        cy.login_teste('standard_user','secret_sauce')
         cy.get('.title').should('contain','Products')
     });
 
-    it('Validando Login incorreto  ', () => {
-        cy.visit("https://www.saucedemo.com/")
-        cy.get('[data-test="username"]').type("standard_id")
-        cy.get('[data-test="password"]').type("secret_sauce")
-        cy.get('[data-test="login-button"]').click()
+    it.only('Validando Login incorreto  ', () => {
+        cy.login_teste('incorreto','secret_sauce')
         cy.get('[data-test="error"]'). should('contain','Epic sadface: Username and password do not match any user in this service')
        
 });
     
-it('Validando Senha incorreta  ', () => {
-    cy.visit("https://www.saucedemo.com/")
-    cy.get('[data-test="username"]').type("standard_user")
-    cy.get('[data-test="password"]').type("incorreta")
+it.only('Validando Senha incorreta  ', () => {
+    cy.login_teste('standard_use','incorreto')
+    cy.get('[data-test="error"]'). should('contain','Epic sadface: Username and password do not match any user in this service')
     cy.get('[data-test="login-button"]').click()
 
 });
